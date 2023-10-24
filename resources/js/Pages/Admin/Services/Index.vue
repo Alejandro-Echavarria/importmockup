@@ -33,7 +33,7 @@ const openModal = (op, id, title, icon, description, color) => {
 
     <div>
         <MainTitle>
-            Services
+            Roles
         </MainTitle>
 
         <MainTable :pagination="services">
@@ -46,27 +46,70 @@ const openModal = (op, id, title, icon, description, color) => {
             </template>
 
             <template #thead>
-                <th v-for="(th, key) in thead" scope="col" class="px-4 py-3" :key="key + 'th'">
-                    {{ th }}
+                <th scope="col" class="px-4 py-3">
+                    Nombre
+                </th>
+                <th scope="col" class="px-4 py-3">
+                    Creado
+                </th><th scope="col" class="px-4 py-3">
+                    Actualizdo
                 </th>
             </template>
 
             <template #tbody>
-                <tr v-for="tb in services.data"
-                    class="dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition ease-linear duration-300"
-                    :key="tb.id + 'tb'">
-                    <td class="px-4 py-3">{{ tb.title }}</td>
-                    <td class="px-4 py-3">{{ tb.icon }}</td>
-                    <td class="px-4 py-3" v-html="tb.description"></td>
-                    <td class="px-4 py-3">{{ tb.color }}</td>
-                    <td class="px-4 py-3">{{ tb.created_at }}</td>
-                    <td class="px-4 py-3">{{ tb.updated_at }}</td>
+                <tr class="dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition ease-linear duration-300"
+                    :key="h + 'tb'">
+                    <td class="px-4 py-3">Admin</td>
+                    <td class="px-4 py-3">01/01/2020</td>
+                    <td class="px-4 py-3">01/01/2020</td>
                     <td class="px-4 py-3 flex items-center justify-end">
                         <TableButton>
-                            <font-awesome-icon @click="openModal(2, tb.id, tb.title, tb.icon, tb.description, tb.color)"
-                                class="w-4 h-4 text-indigo-500" :icon="['far', 'pen-to-square']" />
+                            <font-awesome-icon
+                                @click="openModal()"
+                                class="w-4 h-4 text-indigo-500"
+                                :icon="['far', 'pen-to-square']"
+                            />
                         </TableButton>
-                        <DeleteService :id="tb.id" :filter="filter" :page="page" :key="tb.id + 'deleteBtn'"/>
+                        <TableButton title="Permisos">
+                            <svg class="flex-shrink-0 w-4 h-4 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
+                  <path d="M16 14V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h12a1 1 0 0 0 0-2h-1v-2a2 2 0 0 0 2-2ZM4 2h2v12H4V2Zm8 16H3a1 1 0 0 1 0-2h9v2Z"/>
+               </svg>
+                        </TableButton>
+                        <TableButton>
+                            <font-awesome-icon
+                                @click="openModal()"
+                                class="w-4 h-4 text-red-500"
+                                :icon="['far', 'trash-alt']"
+                            />
+                        </TableButton>
+                    </td>
+                </tr>
+
+                <tr class="dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition ease-linear duration-300"
+                    :key="h + 'tb'">
+                    <td class="px-4 py-3">User</td>
+                    <td class="px-4 py-3">01/01/2020</td>
+                    <td class="px-4 py-3">01/01/2020</td>
+                    <td class="px-4 py-3 flex items-center justify-end">
+                        <TableButton>
+                            <font-awesome-icon
+                                @click="openModal()"
+                                class="w-4 h-4 text-indigo-500"
+                                :icon="['far', 'pen-to-square']"
+                            />
+                        </TableButton>
+                        <TableButton title="Permisos">
+                            <svg class="flex-shrink-0 w-4 h-4 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
+                            <path d="M16 14V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h12a1 1 0 0 0 0-2h-1v-2a2 2 0 0 0 2-2ZM4 2h2v12H4V2Zm8 16H3a1 1 0 0 1 0-2h9v2Z"/>
+                        </svg>
+                        </TableButton>
+                        <TableButton>
+                            <font-awesome-icon
+                                @click="openModal()"
+                                class="w-4 h-4 text-red-500"
+                                :icon="['far', 'trash-alt']"
+                            />
+                        </TableButton>
                     </td>
                 </tr>
             </template>

@@ -39,10 +39,8 @@ defineOptions({
             </template>
 
             <template #tbody>
-                <tr
-                    class="dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition ease-linear duration-300"
-                    :key="h + 'tb'"
-                >
+                <tr class="dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition ease-linear duration-300"
+                    :key="h + 'tb'">
                     <td class="px-4 py-3">Manuel Echavarria</td>
                     <td class="px-4 py-3">mechavarria@gmail.com</td>
                     <td class="px-4 py-3">01/01/2020</td>
